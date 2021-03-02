@@ -66,3 +66,8 @@ C:\Users\aslan\source\repos\ReCapProject\WebAPİ\obj\Debug\netcoreapp3.1\WebAPİ
 C:\Users\aslan\source\repos\ReCapProject\WebAPİ\obj\Debug\netcoreapp3.1\WebAPİ.dll
 C:\Users\aslan\source\repos\ReCapProject\WebAPİ\obj\Debug\netcoreapp3.1\WebAPİ.pdb
 C:\Users\aslan\source\repos\ReCapProject\WebAPİ\obj\Debug\netcoreapp3.1\WebAPİ.genruntimeconfig.cache
+C:\Users\aslan\source\repos\ReCapProject\WebAPİ\bin\Debug\netcoreapp3.1\Autofac.dll
+C:\Users\aslan\source\repos\ReCapProject\WebAPİ\bin\Debug\netcoreapp3.1\Autofac.Extras.DynamicProxy.dll
+C:\Users\aslan\source\repos\ReCapProject\WebAPİ\bin\Debug\netcoreapp3.1\Castle.Core.dll
+C:\Users\aslan\source\repos\ReCapProject\WebAPİ\bin\Debug\netcoreapp3.1\FluentValidation.dll
+C:\Users\aslan\source\repos\ReCapProject\WebAPİ\bin\Debug\netcoreapp3.1\Autofac.Extensions.DependencyInjection.dll

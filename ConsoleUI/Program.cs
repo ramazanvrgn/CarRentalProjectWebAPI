@@ -1,4 +1,6 @@
 ﻿using Business.Concrete;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
@@ -11,10 +13,10 @@ namespace ConsoleUI
         {
             Car car1 = new Car
             {
-                Id = 1,
+                
                 ModelYear = 2018,
-                DailyPrice = 400,
-                Description = "A5 Cabrio",
+                DailyPrice = 0,
+                Description = "R",
                 BrandId = 1,
                 ColorId = 1002
             };
@@ -25,11 +27,11 @@ namespace ConsoleUI
             CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
 
-            
+
             //-----------------------RentalManager CRUD Testleri--------------------------------
             //RentalDeletedTest(rentalManager);
             //RentalUpdateTest(rentalManager);
-              RentalAddTest(rentalManager);
+            // RentalAddTest(rentalManager);
             //RentalGetByIdTest(rentalManager);
             //RentalGetAllTest(rentalManager);
 
@@ -66,7 +68,7 @@ namespace ConsoleUI
             //-----------------------CarManager CRUD Testleri--------------------------------
             //carManager.Update(car1);
             //carManager.Delete(car1);
-            //carManager.Add(car1);
+            CarAddTest(carManager);
             //ColorIdFilterTest(carManager);
             //BrandIdFilterTest(carManager);
             //ModelYearFilterTest(carManager);
@@ -314,6 +316,19 @@ namespace ConsoleUI
             }            
         }
         //-------------------------------Car Methods------------------------------------
+        [ValidationAspects(typeof(CarValidator))]
+        private static void CarAddTest(CarManager carManager)
+        {
+            var result = carManager.Add(new Car
+            {
+                ModelYear = 2018,
+                DailyPrice = 0,
+                Description = "R",
+                BrandId = 1,
+                ColorId = 1002
+            });
+            Console.WriteLine(result.Message);
+        }
 
         private static void ColorIdFilterTest(CarManager carManager)
         {
