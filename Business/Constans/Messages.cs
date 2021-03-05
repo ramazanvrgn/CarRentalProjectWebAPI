@@ -42,5 +42,11 @@ namespace Business.Constans
         public static string RentalInvalid = "Kiralama geçersiz...";
         public static string RentalDeleted = "Kiralama silindi...";
         public static string RentalUpdated = "Kiralama  güncellendi...";
+
+        public static string ImageAdded = "Resim Eklendi";
+        public static string ImageUptaded = "Resim güncellendi";
+        public static string ImageDeleted = "Resim silindi";
+
+        public static string CarImageFull = "Araba en fazla 5 resim alabilir.";
     }
 }
