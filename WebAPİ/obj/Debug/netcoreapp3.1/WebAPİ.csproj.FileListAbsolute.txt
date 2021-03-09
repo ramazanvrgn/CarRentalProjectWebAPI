@@ -73,3 +73,4 @@ C:\Users\aslan\source\repos\ReCapProject\WebAPİ\bin\Debug\netcoreapp3.1\FluentV
 C:\Users\aslan\source\repos\ReCapProject\WebAPİ\bin\Debug\netcoreapp3.1\Autofac.Extensions.DependencyInjection.dll
 C:\Users\aslan\source\repos\ReCapProject\WebAPİ\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
 C:\Users\aslan\source\repos\ReCapProject\WebAPİ\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\Users\aslan\source\repos\ReCapProject\WebAPİ\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
