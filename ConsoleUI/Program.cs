@@ -1,6 +1,7 @@
 ﻿using Business.Concrete;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
+using Core.Entities.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
@@ -148,13 +149,13 @@ namespace ConsoleUI
 
         private static void UserDeletedTest(UserManager userManager)
         {
-            var result = userManager.Delete(new User { UserId = 6 });
+            var result = userManager.Delete(new User { Id = 6 });
             Console.WriteLine(result.Message);
         }
 
         private static void UserUpdateTest(UserManager userManager)
         {
-            var result = userManager.Update(new User { UserId = 7, FirstName = "Aslan" });
+            var result = userManager.Update(new User { Id = 7, FirstName = "Aslan" });
             Console.WriteLine(result.Message);
         }
 
@@ -164,7 +165,7 @@ namespace ConsoleUI
             {
                 FirstName = "Yunus",
                 LastName = "Akalp",
-                Password = "1234ya",
+                PasswordHash = default,
                 Email = default
             });
             Console.WriteLine(result.Message);
