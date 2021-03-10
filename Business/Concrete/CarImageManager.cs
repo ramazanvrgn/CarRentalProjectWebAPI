@@ -1,6 +1,8 @@
 ﻿using Business.Abstract;
 using Business.Constans;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Helpers;
@@ -24,6 +26,7 @@ namespace Business.Concrete
             _carImageDal = carImageDal;
         }
         //[ValidationAspects(typeof(CarImageValidator))]
+        [CacheRemoveAspect("ICarImageDal.Get")]
         public IResult Add(CarImage carImage, IFormFile file)
         {
             IResult result= BusinessRules.Run(CheckImageLimitExceeded(carImage.CarId));
@@ -45,7 +48,8 @@ namespace Business.Concrete
             _carImageDal.Delete(carImage);
             return new SuccessResult();
         }
-
+        //[PerformanceAspect(5)]
+        [CacheAspect]
         public IDataResult<List<CarImage>> GetAll()
         {
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll());
@@ -55,7 +59,7 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<CarImage>(_carImageDal.Get(ı => ı.Id == id));
         }
-
+        [CacheRemoveAspect("ICarImageDal.Get")]
         public IResult Update(CarImage carImage, IFormFile file)
         {
             IResult result = BusinessRules.Run(CheckImageLimitExceeded(carImage.CarId));
