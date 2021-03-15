@@ -5,6 +5,7 @@ using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,7 +21,7 @@ namespace Business.Concrete
             _rentalDal = rentalDal;
         }
         [ValidationAspects(typeof(RentalValidator))]
-        public Result Add(Rental rental)
+        public IResult Add(Rental rental)
         {
             var result =_rentalDal.Get(r=>r.CarId==rental.CarId && r.ReturnDate>=rental.RentDate) ;           
  
@@ -33,24 +34,28 @@ namespace Business.Concrete
             return new ErrorResult(Messages.RentalInvalid);
         }
 
-        public Result Delete(Rental rental)
+        public IResult Delete(Rental rental)
         {
             _rentalDal.Delete(rental);
             return new SuccessResult(Messages.RentalDeleted);
         }
 
-        public DataResult<List<Rental>> GetAll()
+        public IDataResult<List<Rental>> GetAll()
         {
 
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), Messages.RentalsListed);
         }
+        public IDataResult<List<RentalDetailDto>> GetRentalDetail()
+        {
+            return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalDetails());
+        }
 
-        public DataResult<Rental> GetById(int _rentalId)
+        public IDataResult<Rental> GetById(int _rentalId)
         {
             return new SuccessDataResult<Rental>(_rentalDal.Get(c => c.RentalId == _rentalId));
         }
 
-        public Result Update(Rental rental)
+        public IResult Update(Rental rental)
         {
             _rentalDal.Update(rental);
             return new SuccessResult(Messages.RentalUpdated);
